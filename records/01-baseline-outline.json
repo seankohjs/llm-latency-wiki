@@ -1,0 +1,87 @@
+[
+  {
+    "question": "timeline",
+    "outline": [
+      {
+        "id": "C01",
+        "text": "Prefill 處理輸入的 prompt，建立後續生成所需的狀態，並形成第一個輸出 token。"
+      },
+      {
+        "id": "C02",
+        "text": "Decode 接續生成後面的 token；後續輸出會依賴先前的上下文與已生成的 token。"
+      },
+      {
+        "id": "C03",
+        "text": "請求到達後可能先等待排程；排隊時間與模型實際處理輸入的時間可以分開觀察。"
+      }
+    ]
+  },
+  {
+    "question": "metrics",
+    "outline": [
+      {
+        "id": "C10",
+        "text": "APC 減少共同前綴的輸入處理工作，並不直接縮短後續每個新 token 的 decode 計算。"
+      },
+      {
+        "id": "C04",
+        "text": "首個 token 的等待時間（TTFT），在這裡指服務前端接收請求到收到第一個輸出 token 的時間。"
+      },
+      {
+        "id": "C05",
+        "text": "相鄰輸出 token 的間隔（ITL）看的是後續 token 到達的節奏。"
+      }
+    ]
+  },
+  {
+    "question": "kv",
+    "outline": [
+      {
+        "id": "C07",
+        "text": "KV cache 保存先前 token 已算出的注意力 key、value，讓後續生成可以使用這些狀態。"
+      },
+      {
+        "id": "C08",
+        "text": "PagedAttention 把 KV cache 以區塊管理，可隨序列長度配置，區塊不必在記憶體中連續。"
+      },
+      {
+        "id": "C12",
+        "text": "在這份 vLLM 設計中，快取比對用前綴和區塊內的 token 等資訊，且只快取完整區塊。"
+      }
+    ]
+  },
+  {
+    "question": "prefix",
+    "outline": [
+      {
+        "id": "C10",
+        "text": "APC 減少共同前綴的輸入處理工作，並不直接縮短後續每個新 token 的 decode 計算。"
+      },
+      {
+        "id": "C09",
+        "text": "自動前綴快取（APC）讓新請求重用相同前綴的可用 KV 狀態，減少該段 prefill 的重複計算。"
+      },
+      {
+        "id": "C01",
+        "text": "Prefill 處理輸入的 prompt，建立後續生成所需的狀態，並形成第一個輸出 token。"
+      }
+    ]
+  },
+  {
+    "question": "routing",
+    "outline": [
+      {
+        "id": "C14",
+        "text": "已有快取的節點可能排隊；負載感知路由會把重用效益和節點當下負載一起考慮。"
+      },
+      {
+        "id": "C13",
+        "text": "若節點已保存相容前綴，將請求送往該處可能重用已有工作。"
+      },
+      {
+        "id": "C03",
+        "text": "請求到達後可能先等待排程；排隊時間與模型實際處理輸入的時間可以分開觀察。"
+      }
+    ]
+  }
+]

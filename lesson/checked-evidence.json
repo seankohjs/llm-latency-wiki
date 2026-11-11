@@ -1,0 +1,236 @@
+{
+  "wiki_sha256": "93e8bdaecb9a8560ab02c994b257d645a85051cdd22b13094232414a121d071d",
+  "questions": {
+    "timeline": [
+      {
+        "id": "C03",
+        "facet": "queue",
+        "topic": "stages",
+        "text": "請求到達後可能先等待排程；排隊時間與模型實際處理輸入的時間可以分開觀察。",
+        "limit": "不同觀測位置的事件與計時方式可能不同。",
+        "locator": "V1 Design → Interval Calculations",
+        "keywords": [
+          "queue",
+          "latency",
+          "prefill",
+          "schedule"
+        ],
+        "source": "S02"
+      },
+      {
+        "id": "C01",
+        "facet": "prefill",
+        "topic": "stages",
+        "text": "Prefill 處理輸入的 prompt，建立後續生成所需的狀態，並形成第一個輸出 token。",
+        "limit": "這裡介紹自回歸文字生成的概念；不假設服務一定用一整批一次完成 prefill。",
+        "locator": "§2.1 LLM Inference",
+        "keywords": [
+          "prefill",
+          "prompt",
+          "token",
+          "inference",
+          "decode"
+        ],
+        "source": "S01"
+      },
+      {
+        "id": "C02",
+        "facet": "decode",
+        "topic": "stages",
+        "text": "Decode 接續生成後面的 token；後續輸出會依賴先前的上下文與已生成的 token。",
+        "limit": "這是自回歸生成的順序關係，不代表每次網路串流都只傳一個 token。",
+        "locator": "§2.1 LLM Inference",
+        "keywords": [
+          "decode",
+          "generation",
+          "token",
+          "prefill"
+        ],
+        "source": "S01"
+      }
+    ],
+    "metrics": [
+      {
+        "id": "C04",
+        "facet": "ttft",
+        "topic": "metrics",
+        "text": "首個 token 的等待時間（TTFT），在這裡指服務前端接收請求到收到第一個輸出 token 的時間。",
+        "limit": "vLLM v0.11.0 V1 前端量測邊界，包含前端輸入處理與可能的排隊；不是把 prefill 單獨計時。",
+        "locator": "V1 Design → Frontend Stats Collection",
+        "keywords": [
+          "ttft",
+          "latency",
+          "prefill",
+          "queue",
+          "token"
+        ],
+        "source": "S02"
+      },
+      {
+        "id": "C05",
+        "facet": "itl",
+        "topic": "metrics",
+        "text": "相鄰輸出 token 的間隔（ITL）看的是後續 token 到達的節奏。",
+        "limit": "不要把相鄰間隔的分布和每個請求的平均 TPOT 當成完全相同的統計量。",
+        "locator": "V1 Design → Interval Calculations",
+        "keywords": [
+          "itl",
+          "latency",
+          "decode",
+          "token"
+        ],
+        "source": "S02"
+      },
+      {
+        "id": "C06",
+        "facet": "e2e",
+        "topic": "metrics",
+        "text": "這裡的完成時間從服務前端收到請求算到最後一個 token。",
+        "limit": "客戶端所見的完成時間還可能包含網路與前端處理，不能混用計時邊界。",
+        "locator": "V1 Design → Frontend Stats Collection",
+        "keywords": [
+          "end-to-end",
+          "e2e",
+          "latency",
+          "completion",
+          "token"
+        ],
+        "source": "S02"
+      }
+    ],
+    "kv": [
+      {
+        "id": "C07",
+        "facet": "kv-state",
+        "topic": "kv",
+        "text": "KV cache 保存先前 token 已算出的注意力 key、value，讓後續生成可以使用這些狀態。",
+        "limit": "保存的是模型中間狀態，不是把整篇已生成的回答當作快取結果。",
+        "locator": "§2.2 與 §4.3",
+        "keywords": [
+          "kv",
+          "cache",
+          "token",
+          "decode",
+          "state"
+        ],
+        "source": "S03"
+      },
+      {
+        "id": "C08",
+        "facet": "block-memory",
+        "topic": "kv",
+        "text": "PagedAttention 把 KV cache 以區塊管理，可隨序列長度配置，區塊不必在記憶體中連續。",
+        "limit": "原論文設計；這個機制本身不保證特定請求會降低固定比例延遲。",
+        "locator": "§4.1–4.2",
+        "keywords": [
+          "kv",
+          "cache",
+          "token",
+          "blocks",
+          "memory"
+        ],
+        "source": "S03"
+      },
+      {
+        "id": "C12",
+        "facet": "prefix-match",
+        "topic": "kv",
+        "text": "在這份 vLLM 設計中，快取比對用前綴和區塊內的 token 等資訊，且只快取完整區塊。",
+        "limit": "意思相似不表示前綴一致；這是指定版本文件的實作條件，不套用到所有框架。",
+        "locator": "Opening design description／Note 1",
+        "keywords": [
+          "kv",
+          "cache",
+          "token",
+          "prefix",
+          "blocks"
+        ],
+        "source": "S05"
+      }
+    ],
+    "prefix": [
+      {
+        "id": "C09",
+        "facet": "prefix-reuse",
+        "topic": "prefix",
+        "text": "自動前綴快取（APC）讓新請求重用相同前綴的可用 KV 狀態，減少該段 prefill 的重複計算。",
+        "limit": "須有相容且仍可用的共同前綴；示例不代表全程都命中。",
+        "locator": "Introduction／Example workloads",
+        "keywords": [
+          "prefix",
+          "cache",
+          "prefill",
+          "kv",
+          "reuse"
+        ],
+        "source": "S04"
+      },
+      {
+        "id": "C10",
+        "facet": "decode-limit",
+        "topic": "prefix",
+        "text": "APC 減少共同前綴的輸入處理工作，並不直接縮短後續每個新 token 的 decode 計算。",
+        "limit": "不能由 APC 命中推出 ITL 必然下降，也不能推估固定延遲改善比例。",
+        "locator": "Limits",
+        "keywords": [
+          "prefix",
+          "cache",
+          "prefill",
+          "decode",
+          "latency",
+          "ttft",
+          "itl"
+        ],
+        "source": "S04"
+      },
+      {
+        "id": "C11",
+        "facet": "cache-bound",
+        "topic": "prefix",
+        "text": "沒有可重用前綴時，不能靠該段快取省下計算；若等待主要來自長輸出，整體改善也可能有限。",
+        "limit": "實際效果取決於工作負載、排程與快取狀態。",
+        "locator": "Limits",
+        "keywords": [
+          "prefix",
+          "cache",
+          "latency",
+          "output",
+          "workload"
+        ],
+        "source": "S04"
+      }
+    ],
+    "routing": [
+      {
+        "id": "C13",
+        "facet": "cache-affinity",
+        "topic": "routing",
+        "text": "若節點已保存相容前綴，將請求送往該處可能重用已有工作。",
+        "limit": "假設路由能取得合適的快取資訊；請求放置與選擇不同模型是兩件事。",
+        "locator": "Introduction／How It Works",
+        "keywords": [
+          "routing",
+          "cache",
+          "prefix",
+          "load"
+        ],
+        "source": "S06"
+      },
+      {
+        "id": "C14",
+        "facet": "load-tradeoff",
+        "topic": "routing",
+        "text": "已有快取的節點可能排隊；負載感知路由會把重用效益和節點當下負載一起考慮。",
+        "limit": "範例說明取捨，不宣稱最空閒節點一定較快或任一策略必然獲勝。",
+        "locator": "How It Works",
+        "keywords": [
+          "routing",
+          "cache",
+          "load",
+          "queue"
+        ],
+        "source": "S06"
+      }
+    ]
+  }
+}

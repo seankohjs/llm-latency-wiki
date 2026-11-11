@@ -1,0 +1,136 @@
+{
+  "method": "keyword overlap top 3; coverage checked after draft outline",
+  "checks": [
+    {
+      "question": "timeline",
+      "terms": [
+        "queue",
+        "prefill",
+        "decode"
+      ],
+      "initial_ids": [
+        "C01",
+        "C02",
+        "C03"
+      ],
+      "initial_facets": [
+        "prefill",
+        "decode",
+        "queue"
+      ],
+      "required": [
+        "queue",
+        "prefill",
+        "decode"
+      ],
+      "missing": [],
+      "status": "passed"
+    },
+    {
+      "question": "metrics",
+      "terms": [
+        "ttft",
+        "itl",
+        "latency"
+      ],
+      "initial_ids": [
+        "C10",
+        "C04",
+        "C05"
+      ],
+      "initial_facets": [
+        "decode-limit",
+        "ttft",
+        "itl"
+      ],
+      "required": [
+        "ttft",
+        "itl",
+        "e2e"
+      ],
+      "missing": [
+        "e2e"
+      ],
+      "status": "failed"
+    },
+    {
+      "question": "kv",
+      "terms": [
+        "kv",
+        "cache",
+        "token"
+      ],
+      "initial_ids": [
+        "C07",
+        "C08",
+        "C12"
+      ],
+      "initial_facets": [
+        "kv-state",
+        "block-memory",
+        "prefix-match"
+      ],
+      "required": [
+        "kv-state",
+        "block-memory",
+        "prefix-match"
+      ],
+      "missing": [],
+      "status": "passed"
+    },
+    {
+      "question": "prefix",
+      "terms": [
+        "prefix",
+        "cache",
+        "prefill",
+        "decode"
+      ],
+      "initial_ids": [
+        "C10",
+        "C09",
+        "C01"
+      ],
+      "initial_facets": [
+        "decode-limit",
+        "prefix-reuse",
+        "prefill"
+      ],
+      "required": [
+        "prefix-reuse",
+        "decode-limit",
+        "cache-bound"
+      ],
+      "missing": [
+        "cache-bound"
+      ],
+      "status": "failed"
+    },
+    {
+      "question": "routing",
+      "terms": [
+        "routing",
+        "cache",
+        "load",
+        "queue"
+      ],
+      "initial_ids": [
+        "C14",
+        "C13",
+        "C03"
+      ],
+      "initial_facets": [
+        "load-tradeoff",
+        "cache-affinity",
+        "queue"
+      ],
+      "required": [
+        "cache-affinity",
+        "load-tradeoff"
+      ],
+      "missing": [],
+      "status": "passed"
+    }
+  ],
+  "failed_questions": 2
+}

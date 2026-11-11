@@ -1,0 +1,62 @@
+[
+  {
+    "id": "S01",
+    "url": "https://arxiv.org/html/2401.09670v3",
+    "final_url": "https://arxiv.org/html/2401.09670v3",
+    "http_status": 200,
+    "bytes": 293329,
+    "sha256": "181652d360165e987ca049f6c7c00df735bc2deb51fb3e8425e7c34992155bf8",
+    "checked": "2026-11-11",
+    "note": "Hash of fetched primary document; no full text republished."
+  },
+  {
+    "id": "S02",
+    "url": "https://docs.vllm.ai/en/v0.11.0/design/metrics.html",
+    "final_url": "https://docs.vllm.ai/en/v0.11.0/design/metrics.html",
+    "http_status": 200,
+    "bytes": 373187,
+    "sha256": "3e50436c188e2d481d9e2624e5ef49eb841610e751e1e5c659b1a4cca75bbde0",
+    "checked": "2026-11-11",
+    "note": "Hash of fetched primary document; no full text republished."
+  },
+  {
+    "id": "S03",
+    "url": "https://arxiv.org/html/2309.06180",
+    "final_url": "https://arxiv.org/html/2309.06180",
+    "http_status": 200,
+    "bytes": 230618,
+    "sha256": "bc79a40caec6ade45aa199ecac71d4feacd528d880cb91147e10299696269fcc",
+    "checked": "2026-11-11",
+    "note": "Hash of fetched primary document; no full text republished."
+  },
+  {
+    "id": "S04",
+    "url": "https://docs.vllm.ai/en/v0.11.0/features/automatic_prefix_caching.html",
+    "final_url": "https://docs.vllm.ai/en/v0.11.0/features/automatic_prefix_caching.html",
+    "http_status": 200,
+    "bytes": 277285,
+    "sha256": "5782200c7c4182c0923f5ce9f9e1f6a5ec3c8723d3633912bc924f5d8c85e9c0",
+    "checked": "2026-11-11",
+    "note": "Hash of fetched primary document; no full text republished."
+  },
+  {
+    "id": "S05",
+    "url": "https://docs.vllm.ai/en/v0.11.0/design/prefix_caching.html",
+    "final_url": "https://docs.vllm.ai/en/v0.11.0/design/prefix_caching.html",
+    "http_status": 200,
+    "bytes": 302308,
+    "sha256": "827f21bcf44aa011441a2c86153ab54eee5db09f333620f400331ee99bf092be",
+    "checked": "2026-11-11",
+    "note": "Hash of fetched primary document; no full text republished."
+  },
+  {
+    "id": "S06",
+    "url": "https://docs.vllm.ai/projects/production-stack/en/latest/use_cases/loadaware-routing.html",
+    "final_url": "https://docs.vllm.ai/projects/production-stack/en/latest/use_cases/loadaware-routing.html",
+    "http_status": 200,
+    "bytes": 35519,
+    "sha256": "ea8f22d13779b15239a57f836bebdfc4edd90eb7f7ccaac6282ad071d1ad5777",
+    "checked": "2026-11-11",
+    "note": "Hash of fetched primary document; no full text republished."
+  }
+]

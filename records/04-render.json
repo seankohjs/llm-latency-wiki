@@ -1,0 +1,113 @@
+{
+  "slides": 9,
+  "source_count_in_lesson": 6,
+  "unique_claims": 14,
+  "verified_question_count": 5,
+  "wiki_sha256": "93e8bdaecb9a8560ab02c994b257d645a85051cdd22b13094232414a121d071d",
+  "source_ids": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "slide_to_wiki": [
+    {
+      "slide": "start",
+      "claims": [],
+      "sources": []
+    },
+    {
+      "slide": "stages",
+      "claims": [
+        "C03",
+        "C01",
+        "C02"
+      ],
+      "sources": [
+        "S01",
+        "S02"
+      ]
+    },
+    {
+      "slide": "metrics",
+      "claims": [
+        "C04",
+        "C05",
+        "C06"
+      ],
+      "sources": [
+        "S02"
+      ]
+    },
+    {
+      "slide": "kv",
+      "claims": [
+        "C07",
+        "C08",
+        "C12"
+      ],
+      "sources": [
+        "S03",
+        "S05"
+      ]
+    },
+    {
+      "slide": "prefix",
+      "claims": [
+        "C09",
+        "C10",
+        "C11"
+      ],
+      "sources": [
+        "S04"
+      ]
+    },
+    {
+      "slide": "routing",
+      "claims": [
+        "C13",
+        "C14"
+      ],
+      "sources": [
+        "S06"
+      ]
+    },
+    {
+      "slide": "lab",
+      "claims": [
+        "C04",
+        "C05",
+        "C06",
+        "C10"
+      ],
+      "sources": [
+        "S02",
+        "S04"
+      ]
+    },
+    {
+      "slide": "quiz",
+      "claims": [
+        "C04",
+        "C05"
+      ],
+      "sources": [
+        "S02"
+      ]
+    },
+    {
+      "slide": "recap",
+      "claims": [
+        "C04",
+        "C05",
+        "C10"
+      ],
+      "sources": [
+        "S02",
+        "S04"
+      ]
+    }
+  ]
+}

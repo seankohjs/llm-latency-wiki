@@ -1,0 +1,26 @@
+{
+  "html_routes": 4,
+  "links_and_anchors": "passed",
+  "slide_mapping": {
+    "slides": 9,
+    "source_count_in_lesson": 6,
+    "unique_claims": 14,
+    "verified_question_count": 5,
+    "wiki_sha256": "93e8bdaecb9a8560ab02c994b257d645a85051cdd22b13094232414a121d071d",
+    "source_ids": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06"
+    ]
+  },
+  "synthetic_negative_cases_rejected": [
+    "synthetic stale Wiki hash",
+    "synthetic nonexistent citation",
+    "synthetic dropped completion definition",
+    "synthetic modified evidence text"
+  ],
+  "note": "The four intentional fixture cases are not observed baseline errors."
+}

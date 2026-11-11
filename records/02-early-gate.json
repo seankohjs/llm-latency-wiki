@@ -1,0 +1,117 @@
+{
+  "method": "coverage check immediately after Wiki lookup, targeted requery before drafting",
+  "questions": 5,
+  "checks": [
+    {
+      "question": "timeline",
+      "initial_ids": [
+        "C01",
+        "C02",
+        "C03"
+      ],
+      "initial_missing": [],
+      "retrieval_retries": [],
+      "approved_ids": [
+        "C03",
+        "C01",
+        "C02"
+      ],
+      "remaining_missing": [],
+      "passed": true
+    },
+    {
+      "question": "metrics",
+      "initial_ids": [
+        "C10",
+        "C04",
+        "C05"
+      ],
+      "initial_missing": [
+        "e2e"
+      ],
+      "retrieval_retries": [
+        {
+          "round": 1,
+          "targeted_facets": [
+            "e2e"
+          ],
+          "returned": {
+            "e2e": "C06"
+          }
+        }
+      ],
+      "approved_ids": [
+        "C04",
+        "C05",
+        "C06"
+      ],
+      "remaining_missing": [],
+      "passed": true
+    },
+    {
+      "question": "kv",
+      "initial_ids": [
+        "C07",
+        "C08",
+        "C12"
+      ],
+      "initial_missing": [],
+      "retrieval_retries": [],
+      "approved_ids": [
+        "C07",
+        "C08",
+        "C12"
+      ],
+      "remaining_missing": [],
+      "passed": true
+    },
+    {
+      "question": "prefix",
+      "initial_ids": [
+        "C10",
+        "C09",
+        "C01"
+      ],
+      "initial_missing": [
+        "cache-bound"
+      ],
+      "retrieval_retries": [
+        {
+          "round": 1,
+          "targeted_facets": [
+            "cache-bound"
+          ],
+          "returned": {
+            "cache-bound": "C11"
+          }
+        }
+      ],
+      "approved_ids": [
+        "C09",
+        "C10",
+        "C11"
+      ],
+      "remaining_missing": [],
+      "passed": true
+    },
+    {
+      "question": "routing",
+      "initial_ids": [
+        "C14",
+        "C13",
+        "C03"
+      ],
+      "initial_missing": [],
+      "retrieval_retries": [],
+      "approved_ids": [
+        "C13",
+        "C14"
+      ],
+      "remaining_missing": [],
+      "passed": true
+    }
+  ],
+  "questions_requeried": 2,
+  "failed_questions": 0,
+  "wiki_sha256": "93e8bdaecb9a8560ab02c994b257d645a85051cdd22b13094232414a121d071d"
+}

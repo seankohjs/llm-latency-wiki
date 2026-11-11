@@ -1,0 +1,7 @@
+[
+  {"id":"timeline","title":"一次請求經過哪些階段？","terms":["queue","prefill","decode"],"requires":["queue","prefill","decode"]},
+  {"id":"metrics","title":"首個 token、後續間隔、完成時間如何區分？","terms":["ttft","itl","latency"],"requires":["ttft","itl","e2e"]},
+  {"id":"kv","title":"KV 狀態怎麼保存？哪些區塊能重用？","terms":["kv","cache","token"],"requires":["kv-state","block-memory","prefix-match"]},
+  {"id":"prefix","title":"前綴快取有何效益與限制？","terms":["prefix","cache","prefill","decode"],"requires":["prefix-reuse","decode-limit","cache-bound"]},
+  {"id":"routing","title":"為何有快取的節點不一定值得等？","terms":["routing","cache","load","queue"],"requires":["cache-affinity","load-tradeoff"]}
+]

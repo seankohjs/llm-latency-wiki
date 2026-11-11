@@ -1,0 +1,11 @@
+[
+ {"id":"start","kind":"cover","label":"AI INFRASTRUCTURE  /  01","title":"LLM 為什麼回得慢？","lead":"從送出問題，到最後一個 token。","claims":[]},
+ {"id":"stages","kind":"timeline","label":"請求的時間線","title":"一次請求的三段工作","lead":"先把 token 想成模型讀寫文字的小單位。一段回答會依序出現許多 token。","question":"timeline","claims":["C03","C01","C02"]},
+ {"id":"metrics","kind":"metrics","label":"延遲指標","title":"首個 token 與後續節奏","lead":"同樣是慢，可能是很久才開始，也可能是開始後一小段一小段等。","question":"metrics","claims":["C04","C05","C06"]},
+ {"id":"kv","kind":"evidence","label":"推論狀態","title":"KV cache 保存哪些東西？","lead":"想像一本筆記：保留已算好的中間狀態，後面可以接著用。","question":"kv","claims":["C07","C08","C12"]},
+ {"id":"prefix","kind":"cache","label":"跨請求重用","title":"共同前綴可以少算一次","lead":"想像兩個人拿同一份手冊問不同問題。下圖只標出共同的開頭。","question":"prefix","claims":["C09","C10","C11"]},
+ {"id":"routing","kind":"routing","label":"多個工作節點","title":"有快取的節點也可能排隊","lead":"教學情境：A 有相容的前綴但很忙，B 沒有前綴但比較空。你還需要知道什麼，才能決定送去哪裡？","question":"routing","claims":["C13","C14"]},
+ {"id":"lab","kind":"lab","label":"互動小實驗","title":"排隊與生成如何改變等待？","lead":"先移動排隊時間，再切換前綴命中。觀察哪個結果改變。","claims":["C04","C05","C06","C10"]},
+ {"id":"quiz","kind":"quiz","label":"自我檢查","title":"很久才出字，後面卻很快","lead":"若第一個 token 等很久，後續 token 間隔很短，你會先看哪個指標？","claims":["C04","C05"]},
+ {"id":"recap","kind":"recap","label":"結論","title":"慢在哪一段，決定先看什麼","lead":"先找開始等待，再看輸出節奏，最後確認是否有能重用的工作。","claims":["C04","C05","C10"]}
+]

@@ -1,0 +1,14 @@
+{
+  "sources": 6,
+  "topics": 5,
+  "evidence_units": 14,
+  "source_ids": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "wiki_index_sha256": "93e8bdaecb9a8560ab02c994b257d645a85051cdd22b13094232414a121d071d"
+}
